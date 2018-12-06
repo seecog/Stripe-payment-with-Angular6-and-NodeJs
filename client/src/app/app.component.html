@@ -1,0 +1,88 @@
+<!-- <div class="container">
+  <h3>Add Product</h3>
+  <div  *ngIf="alert_stt" class="col-lg-12">
+    <app-message></app-message>
+  </div>
+
+  <div class="col-lg-12">
+    <form [formGroup]="frm">
+    <p>
+      Name : 
+      <input class="form-control" formControlName="name">
+    </p>
+    <p>
+      Cost : 
+      <input class="form-control" formControlName="cost">
+    </p>
+    <p>
+      Brand : 
+      <input class="form-control" formControlName="brand">
+    </p>
+    <p>
+      Image : 
+      <input class="form-control" formControlName="image">
+      <br>
+       <img *ngIf="product.image" [src]="product.image" width="50" height="50">
+    </p>
+    <p>
+      <button *ngIf="!btn_stt" class="btn btn-primary" (click)="saveProduct()">Save Product</button>
+      <button *ngIf="btn_stt" class="btn btn-primary" (click)="updateProduct()">Update Product</button>
+    </p>
+  </form>
+  </div>
+
+  <h3>Product List</h3>
+  <div class="col-lg-12">
+    <table class="table">
+      <th>Image</th>
+      <th>Name</th>
+      <th>Cost</th>
+      <th>Brand</th>
+      <th>Action</th>
+      <tr *ngFor="let x of products | paginate: { itemsPerPage: 3, currentPage: p }">
+        <td>
+          <img [src]="x.image" width="100" height="100">
+     
+        </td>
+        <td>
+          {{x.name}}
+        </td>
+        <td>
+          {{x.cost}}
+        </td>
+        <td>
+          {{x.brand}}
+        </td>
+        <td>
+          <button (click)="editProduct(x)" class="btn btn-primary btn-sm">
+            Edit
+          </button>
+          <button (click)="deleteProduct(x._id)" class="btn btn-danger btn-sm">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="col-lg-12">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+
+</div> -->
+<div class="container">
+  <h1>Card Information</h1>
+<form novalidate (ngSubmit)="buy($event)" [formGroup]="stripeTest">
+  <div class="col-lg-6">
+  <input class="form-control" type="text" formControlName="name" placeholder="Account Holder Name"><br>
+</div>
+<div class="col-lg-6">
+  <div id="card-element" class="field"></div>
+</div>
+<div class="col-lg-12">
+  <button class="btn btn-success" type="submit">
+    BUY
+  </button>
+</div>
+</form>
+</div>
